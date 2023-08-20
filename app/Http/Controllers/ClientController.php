@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
     public function index() {
-        $clients = Client::paginate(2);
+        $clients = Client::paginate(10);
         return view('clients.index', ['clients'=>$clients]);
     }
 

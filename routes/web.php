@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboards.index');
-});
+
+Route::get('/', [DashboardController::class, 'index'])->name('dashboards-index');
 
 Route::prefix('/')->group(function() {
     Route::get('/clients', [ClientController::class, 'index'])->name('clients-index');
