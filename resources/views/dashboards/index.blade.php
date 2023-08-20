@@ -12,8 +12,10 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Clientes</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('clients-index') }}">
+                                            <h6>{{ $totalClients }} Cadastrados</h6>
+                                            <div class="small text-white ms-4"><i class="fas fa-angle-right"></i></div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -21,8 +23,10 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Cobradores</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('clients-index') }}">
+                                            <h6> Cadastrados</h6>
+                                            <div class="small text-white ms-4"><i class="fas fa-angle-right"></i></div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -30,8 +34,10 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Cobranças</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('clients-index') }}">
+                                            <h6> Cadastrados</h6>
+                                            <div class="small text-white ms-4"><i class="fas fa-angle-right"></i></div>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -39,8 +45,16 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Relatórios</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <h6 class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Exibir
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Clientes</a></li>
+                                                <li><a class="dropdown-item" href="#"> Cobradores</a></li>
+                                                <li><a class="dropdown-item" href="#"> Cobranças </a></li>
+                                            </ul>
+                                        </h6>
                                     </div>
                                 </div>
                             </div>

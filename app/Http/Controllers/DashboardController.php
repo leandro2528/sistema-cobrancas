@@ -10,6 +10,7 @@ class DashboardController extends Controller
 {
     public function index() {
         $clients = Client::paginate(4);
-        return view('dashboards.index', ['clients'=>$clients]);
+        $totalClients = Client::count();
+        return view('dashboards.index', ['clients'=>$clients, 'totalClients'=>$totalClients]);
     }
 }
