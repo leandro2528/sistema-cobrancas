@@ -32,14 +32,16 @@ class ClientController extends Controller
         
 
         $valor_emprestado = $request->input('valor_emprestado');
-        $dias_pagamento = $request->input('dias_pagamento');
-        
-        $valor_dividido = $valor_emprestado / $dias_pagamento;
-        $clients = new Client($request->only('nome','endereco','empresa','idade','cpf','telefone'));
-        $clients->valor_emprestado = $valor_emprestado;
+    $dias_pagamento = $request->input('dias_pagamento');
 
-        $clients->save();
-            
-        return redirect()->route('clients-index');
+    $valor_dividido = $valor_emprestado / $dias_pagamento;
+
+    $client = new Client($request->only('nome', 'endereco', 'empresa', 'idade', 'cpf', 'telefone'));
+    $client->valor_emprestado = $valor_emprestado;
+    $client->valor_dividido = $valor_dividido; // Armazena o valor dividido no objeto
+
+    $client->save();
+
+    return redirect()->route('clients-index');
     }
 }
