@@ -16,6 +16,7 @@
     </div> 
     
     <div class="row">
+        @if(count($clients) > 0)
         <div class="col-12">
             <table class="table table-hover table-striped table-bordered">
                 <thead>
@@ -54,6 +55,9 @@
             </table>
                 {{ $clients->links('pagination::simple-bootstrap-4', ['whitoutTotalCount', 'true']) }}
         </div>
+        @else 
+        <p class="my-3 alert alert-danger">Não possui dados nessa tabela</p>
+        @endif
     </div>
 </div>
 

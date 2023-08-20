@@ -65,6 +65,7 @@
                                 <i class="fas fa-table me-1"></i>
                                 Clientes Cadastrado
                             </div>
+                            @if(count($clients) > 0)
                             <div class="card-body">
                                 <table id="datatablesSimple "style="font-size: 12px;" class="table table-hover table-striped table-bordered" >
                                 <table class="table table-hover table-striped table-bordered">
@@ -102,8 +103,11 @@
                                     @endforeach
                                     </tbody>
                                 </table>
-                {{ $clients->links('pagination::simple-bootstrap-4', ['whitoutTotalCount', 'true']) }}
-                            </div>
+                                    {{ $clients->links('pagination::simple-bootstrap-4', ['whitoutTotalCount', 'true']) }}
+                                </div>
+                                @else 
+                                    <p class="my-3 alert alert-danger">Não possui dados nessa tabela</p>
+                                @endif
                         </div>
                     </div>
                 
