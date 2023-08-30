@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
     public function index() {
-        $clients = Client::paginate(6);
+        $clients = Client::orderBy('created_at', 'desc')->paginate(10);
         return view('clients.index', ['clients'=>$clients]);
     }
 
@@ -32,15 +32,15 @@ class ClientController extends Controller
         
 
         $valor_emprestado = $request->input('valor_emprestado');
-    $dias_pagamento = $request->input('dias_pagamento');
+        $dias_pagamento = $request->input('dias_pagamento');
 
-    $valor_dividido = $valor_emprestado / $dias_pagamento;
+        $valor_dividido = $valor_emprestado * 1.2 / $dias_pagamento;
 
-    $client = new Client($request->only('nome', 'endereco', 'empresa', 'idade', 'cpf', 'telefone'));
-    $client->valor_emprestado = $valor_emprestado;
-    $client->valor_dividido = $valor_dividido; // Armazena o valor dividido no objeto
+        $client = new Client($request->only('nome', 'endereco', 'empresa', 'idade', 'cpf', 'telefone'));
+        $client->valor_emprestado = $valor_emprestado;
+        $client->valor_dividido = $valor_dividido; // Armazena o valor dividido no objeto
 
-    $client->save();
+        $client->save();
 
     return redirect()->route('clients-index');
     }
