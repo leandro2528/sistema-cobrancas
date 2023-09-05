@@ -73,15 +73,15 @@
                 <select name="dias_pagamento" id="dias_pagamento" class="form-control">
                     <option value="">Selecione os dias</option>
                     <option value="20">20 dias</option>
-                    <option value="30">21 dias</option>
-                    <option value="40">22 dias</option>
-                    <option value="20">23 dias</option>
-                    <option value="30">24 dias</option>
-                    <option value="40">25 dias</option>
-                    <option value="20">26 dias</option>
-                    <option value="30">27 dias</option>
-                    <option value="40">28 dias</option>
-                    <option value="20">29 dias</option>
+                    <option value="21">21 dias</option>
+                    <option value="22">22 dias</option>
+                    <option value="23">23 dias</option>
+                    <option value="24">24 dias</option>
+                    <option value="25">25 dias</option>
+                    <option value="26">26 dias</option>
+                    <option value="27">27 dias</option>
+                    <option value="28">28 dias</option>
+                    <option value="29">29 dias</option>
                     <option value="30">30 dias</option>
                 </select>
             </div>

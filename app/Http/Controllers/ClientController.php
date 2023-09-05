@@ -36,7 +36,7 @@ class ClientController extends Controller
 
         $valor_dividido = $valor_emprestado * 1.2 / $dias_pagamento;
 
-        $client = new Client($request->only('nome', 'endereco', 'empresa', 'idade', 'cpf', 'telefone'));
+        $client = new Client($request->only('nome', 'endereco', 'empresa', 'idade', 'cpf', 'telefone', 'dias_pagamento'));
         $client->valor_emprestado = $valor_emprestado;
         $client->valor_dividido = $valor_dividido; // Armazena o valor dividido no objeto
 

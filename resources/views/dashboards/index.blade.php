@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') - Painel Inicial
+@section('title','Painel Inicial')
 
 @section('content')
 
@@ -13,7 +13,7 @@
                                     <div class="card-body">Clientes</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('clients-index') }}">
-                                            <h6>{{ $totalClients }} Cadastrados</h6>
+                                            <h6>0{{ $totalClients }} Cadastrados</h6>
                                             <div class="small text-white ms-4"><i class="fas fa-angle-right"></i></div>
                                         </a>
                                     </div>
@@ -23,8 +23,8 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Cobradores</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('clients-index') }}">
-                                            <h6> Cadastrados</h6>
+                                        <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('collectors-index') }}">
+                                            <h6>0{{ $totalCollectors }} Cadastrados</h6>
                                             <div class="small text-white ms-4"><i class="fas fa-angle-right"></i></div>
                                         </a>
                                     </div>
@@ -50,8 +50,8 @@
                                                 Exibir
                                             </a>
                                             <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="#">Clientes</a></li>
-                                                <li><a class="dropdown-item" href="#"> Cobradores</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('clients-index') }}">Clientes</a></li>
+                                                <li><a class="dropdown-item" href="{{ route('collectors-index') }}"> Cobradores</a></li>
                                                 <li><a class="dropdown-item" href="#"> Cobranças </a></li>
                                             </ul>
                                         </h6>
@@ -67,10 +67,10 @@
                             </div>
                             @if(count($clients) > 0)
                             <div class="card-body">
-                                <table id="datatablesSimple "style="font-size: 12px;" class="table table-hover table-striped table-bordered" >
+                                
                                 <table class="table table-hover table-striped table-bordered">
                                     <thead">
-                                        <tr style="font-size: 12px;">
+                                        <tr style="font-size: 10px;">
                                             <th>Nome</th>
                                             <th>Endereço</th>
                                             <th>Empresa</th>
@@ -85,7 +85,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($clients as $client)
-                                    <tr style="font-size: 12px;">
+                                    <tr style="font-size: 10px;">
                                         <td>{{ $client->nome }}</td>
                                         <td>{{ $client->endereco }}</td>
                                         <td>{{ $client->empresa }}</td>

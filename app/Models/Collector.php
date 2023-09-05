@@ -5,17 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class Collector extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'nome',
         'endereco',
-        'empresa',
         'idade',
         'cpf',
         'telefone',
-        'valor_empresatado',
-        'dias_pagamento',
+        'rg',
+        'id_collector'
     ];
+
+    public function clients() {
+        return $this->belongsTo(Client::class, 'id_collector');
+    }
 }
