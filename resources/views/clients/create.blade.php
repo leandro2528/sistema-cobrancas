@@ -22,7 +22,7 @@
             @csrf
             <div class="form-group my-2">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" class="form-control">
+                <input type="text" name="nome" id="nome" class="form-control">
                 @error('nome')
                 <p>{{ $message }}</p>
                 @enderror
@@ -46,7 +46,7 @@
 
             <div class="form-group my-2">
                 <label for="idade">Idade</label>
-                <input type="text" name="idade" class="form-control">
+                <input type="text" name="idade" id="idade" class="form-control">
                 @error('idade')
                 <p>{{ $message }}</p>
                 @enderror
@@ -54,7 +54,7 @@
 
             <div class="form-group my-2">
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" class="form-control">
+                <input type="text" name="cpf" id="cpf" class="form-control">
                 @error('cpf')
                 <p>{{ $message }}</p>
                 @enderror
@@ -62,7 +62,7 @@
 
             <div class="form-group my-2">
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" class="form-control">
+                <input type="text" name="telefone" id="telefone" maxlength="16" class="form-control">
                 @error('telefone')
                 <p>{{ $message }}</p>
                 @enderror
@@ -103,6 +103,66 @@
         </div>
     </div>
 </div>
+
+<script>
+
+    document.getElementById('cpf').addEventListener('input', function (e) {
+        var cpf = e.target.value.replace(/\D/g, '');
+
+        if(cpf.length >= 4) {
+            cpf = cpf.substring(0, 3) + '.' + cpf.substring(3);
+        } 
+        
+        if(cpf.length >= 7) {
+            cpf = cpf.substring(0, 7) + '.' + cpf.substring(7);
+        }
+
+        if(cpf.length >= 11) {
+            cpf = cpf.substring(0, 11) + '-' + cpf.substring(11);
+        }
+
+        if (cpf.length > 14) {
+            cpf = cpf.substring(0, 14);
+        }
+
+        e.target.value = cpf;
+
+    });
+
+    document.getElementById('telefone').addEventListener('input', function (e) {
+        var telefone = e.target.value.replace(/\D/g, '');
+
+        if(telefone.length >= 1) {
+            telefone = '(' + telefone;
+        } 
+         
+        if(telefone.length >= 3) {
+            telefone = telefone.substring(0, 3) + ')' + telefone.substring(3);
+        }
+        
+        if(telefone.length >= 4) {
+            telefone = telefone.substring(0, 4) + ' ' + telefone.substring(4);
+        }
+        if(telefone.length >= 6) {
+            telefone = telefone.substring(0, 6) + ' ' + telefone.substring(6);
+        }
+
+        if(telefone.length >= 11) {
+            telefone = telefone.substring(0, 11) + '-' + telefone.substring(11);
+        }
+
+        
+        e.target.value = telefone;
+
+    });
+
+  
+
+    
+
+
+</script>
+
 @endsection
 
 
