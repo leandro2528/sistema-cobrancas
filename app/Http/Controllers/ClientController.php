@@ -29,8 +29,7 @@ class ClientController extends Controller
             'dias_pagamento' => 'required|numeric'
         ]);
 
-        
-
+    
         $valor_emprestado = $request->input('valor_emprestado');
         $dias_pagamento = $request->input('dias_pagamento');
 
@@ -44,4 +43,24 @@ class ClientController extends Controller
 
     return redirect()->route('clients-index');
     }
+
+    public function edit($id) {
+        $client = Client::findOrFail($id);
+
+        return view('clients.edit', ['client'=>$client]);
+    }
+
+    public function update(Request $request, $id) {
+        $clients = Client::findOrFail($id);
+        $clients->update($request->only('nome', 'endereco', 'empresa', 'idade', 'cpf', 'telefone', 'valor_emprestado','dias_pagamento'
+        ));
+    
+        return redirect()->route('clients-index');
+   }
+    public function delete($id) {
+        $client = client::findOrFail($id);
+        $client->delete();
+        return redirect()->route('clients-index');
+    }
+
 }

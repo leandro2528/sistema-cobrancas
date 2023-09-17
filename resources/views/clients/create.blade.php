@@ -22,55 +22,43 @@
             @csrf
             <div class="form-group my-2">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" class="form-control">
-                @error('nome')
-                <p>{{ $message }}</p>
-                @enderror
+                <input type="text" name="nome" id="nome" class="form-control" required>
+               
             </div>
 
             <div class="form-group my-2">
                 <label for="endereco">Endereco</label>
-                <input type="text" name="endereco" class="form-control">
-                @error('endereco')
-                <p>{{ $message }}</p>
-                @enderror
+                <input type="text" name="endereco" id="endereco" class="form-control" required>
+               
             </div>
 
             <div class="form-group my-2">
                 <label for="empresa">Empresa</label>
-                <input type="text" name="empresa" class="form-control">
-                @error('empresa')
-                <p>{{ $message }}</p>
-                @enderror
+                <input type="text" name="empresa" class="form-control" required>
+               
             </div>
 
             <div class="form-group my-2">
                 <label for="idade">Idade</label>
-                <input type="text" name="idade" id="idade" class="form-control">
-                @error('idade')
-                <p>{{ $message }}</p>
-                @enderror
+                <input type="number" name="idade" id="idade" class="form-control" required>
+               
             </div>
 
             <div class="form-group my-2">
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" id="cpf" class="form-control">
-                @error('cpf')
-                <p>{{ $message }}</p>
-                @enderror
+                <input type="text" name="cpf" id="cpf" class="form-control" required>
+               
             </div>
 
             <div class="form-group my-2">
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" id="telefone" maxlength="16" class="form-control">
-                @error('telefone')
-                <p>{{ $message }}</p>
-                @enderror
+                <input type="text" name="telefone" id="telefone" maxlength="16" class="form-control" required>
+              
             </div>
 
             <div class="form-group my-2">
                 <label for="dias_pagamento">Escolha a quantidade de parcelas por dias:</label>
-                <select name="dias_pagamento" id="dias_pagamento" class="form-control">
+                <select name="dias_pagamento" id="dias_pagamento" class="form-control" required>
                     <option value="">Selecione os dias</option>
                     <option value="20">20 dias</option>
                     <option value="21">21 dias</option>
@@ -88,10 +76,8 @@
 
             <div class="form-group my-2">
                 <label for="valor_emprestado">Valor Emprestado</label>
-                <input type="text" name="valor_emprestado" class="form-control">
-                @error('valor_emprestado')
-                <p>{{ $message }}</p>
-                @enderror
+                <input type="text" name="valor_emprestado" id="valor_emprestado" class="form-control" required>
+              
             </div>
 
             <div class="form-group my-2">
@@ -106,59 +92,59 @@
 
 <script>
 
-    document.getElementById('cpf').addEventListener('input', function (e) {
-        var cpf = e.target.value.replace(/\D/g, '');
+document.getElementById('nome').focus();
+document.getElementById('nome').addEventListener('input', function(e) {
+    e.target.value = e.target.value
+    .split(' ')
+    .map(nome => nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase())
+    .join(' ');
+})
+document.getElementById('endereco').addEventListener('input', function(e){
+    e.target.value = e.target.value
+    .split(' ')
+    .map(endereco => endereco.charAt(0).toUpperCase() + endereco.slice(1).toLowerCase())
+    .join(' ');
+})
 
-        if(cpf.length >= 4) {
-            cpf = cpf.substring(0, 3) + '.' + cpf.substring(3);
-        } 
-        
-        if(cpf.length >= 7) {
-            cpf = cpf.substring(0, 7) + '.' + cpf.substring(7);
-        }
+document.getElementById('cpf').addEventListener('input', function(e) {
+    var cpf = e.target.value.replace(/\D/g, '');
+    if(cpf.length >= 3) {
+        cpf = cpf.substring(0, 3) + '.' + cpf.substring(3);
+    }
+    if(cpf.length >= 7) {
+        cpf = cpf.substring(0, 7) + '.' + cpf.substring(7);
+    }
+    if(cpf.length >= 11) {
+        cpf = cpf.substring(0, 11) + '.' + cpf.substring(11);
+    }
+    if(cpf.length > 14) {
+        cpf = cpf.substring(0, 14);
+    }
 
-        if(cpf.length >= 11) {
-            cpf = cpf.substring(0, 11) + '-' + cpf.substring(11);
-        }
+    e.target.value = cpf;
+})
 
-        if (cpf.length > 14) {
-            cpf = cpf.substring(0, 14);
-        }
+document.getElementById('telefone').addEventListener('input', function(e) {
+    var telefone = e.target.value.replace(/\D/g, '');
+    if(telefone.length >= 1) {
+        telefone = '(' + telefone;
+    }
+    if(telefone.length >= 3) {
+        telefone = telefone.substring(0, 3) + ')' + telefone.substring(3);
+    }
+    if(telefone.length >= 4) {
+        telefone = telefone.substring(0, 4) + ' ' + telefone.substring(4);
+    }
+    if(telefone.length >= 6) {
+        telefone = telefone.substring(0, 6) + ' ' + telefone.substring(6);
+    }
+    if(telefone.length >= 11) {
+        telefone = telefone.substring(0, 11) + '-' + telefone.substring(11);
+    }
 
-        e.target.value = cpf;
+    e.target.value = telefone;
+})
 
-    });
-
-    document.getElementById('telefone').addEventListener('input', function (e) {
-        var telefone = e.target.value.replace(/\D/g, '');
-
-        if(telefone.length >= 1) {
-            telefone = '(' + telefone;
-        } 
-         
-        if(telefone.length >= 3) {
-            telefone = telefone.substring(0, 3) + ')' + telefone.substring(3);
-        }
-        
-        if(telefone.length >= 4) {
-            telefone = telefone.substring(0, 4) + ' ' + telefone.substring(4);
-        }
-        if(telefone.length >= 6) {
-            telefone = telefone.substring(0, 6) + ' ' + telefone.substring(6);
-        }
-
-        if(telefone.length >= 11) {
-            telefone = telefone.substring(0, 11) + '-' + telefone.substring(11);
-        }
-
-        
-        e.target.value = telefone;
-
-    });
-
-  
-
-    
 
 
 </script>
