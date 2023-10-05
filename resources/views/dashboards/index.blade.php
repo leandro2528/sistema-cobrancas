@@ -69,7 +69,7 @@
                             <div class="card-body">
                                 
                                 <table class="table table-hover table-striped table-bordered">
-                                    <thead">
+                                    <thead>
                                         <tr style="font-size: 10px;">
                                             <th>Nome</th>
                                             <th>Endereço</th>
@@ -80,7 +80,6 @@
                                             <th>Valor do Emprestimo</th>
                                             <th>Valor a pagar</th>
                                             <th>Valor por dia</th>
-                                            <th>Ações</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -95,10 +94,6 @@
                                         <td>{{ $client->valor_emprestado }}</td>
                                         <td>{{ $client->valor_emprestado * 1.2 }}</td>
                                         <td>{{ $client->valor_dividido }}</td>
-                                        <td>
-                                            <a class="btn btn-warning btn-sm" href="">Editar</a>
-                                            <a class="btn btn-danger btn-sm" href="">Excluir</a>
-                                        </td>
                                     </tr>
                                     @endforeach
                                     </tbody>

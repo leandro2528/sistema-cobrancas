@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') - Cadastro de novo Cliente
+@section('title', ' Cadastro de Clientes')
 
 @section('content')
 
@@ -89,66 +89,6 @@
         </div>
     </div>
 </div>
-
-<script>
-
-document.getElementById('nome').focus();
-document.getElementById('nome').addEventListener('input', function(e) {
-    e.target.value = e.target.value
-    .split(' ')
-    .map(nome => nome.charAt(0).toUpperCase() + nome.slice(1).toLowerCase())
-    .join(' ');
-})
-document.getElementById('endereco').addEventListener('input', function(e){
-    e.target.value = e.target.value
-    .split(' ')
-    .map(endereco => endereco.charAt(0).toUpperCase() + endereco.slice(1).toLowerCase())
-    .join(' ');
-})
-
-document.getElementById('cpf').addEventListener('input', function(e) {
-    var cpf = e.target.value.replace(/\D/g, '');
-    if(cpf.length >= 3) {
-        cpf = cpf.substring(0, 3) + '.' + cpf.substring(3);
-    }
-    if(cpf.length >= 7) {
-        cpf = cpf.substring(0, 7) + '.' + cpf.substring(7);
-    }
-    if(cpf.length >= 11) {
-        cpf = cpf.substring(0, 11) + '.' + cpf.substring(11);
-    }
-    if(cpf.length > 14) {
-        cpf = cpf.substring(0, 14);
-    }
-
-    e.target.value = cpf;
-})
-
-document.getElementById('telefone').addEventListener('input', function(e) {
-    var telefone = e.target.value.replace(/\D/g, '');
-    if(telefone.length >= 1) {
-        telefone = '(' + telefone;
-    }
-    if(telefone.length >= 3) {
-        telefone = telefone.substring(0, 3) + ')' + telefone.substring(3);
-    }
-    if(telefone.length >= 4) {
-        telefone = telefone.substring(0, 4) + ' ' + telefone.substring(4);
-    }
-    if(telefone.length >= 6) {
-        telefone = telefone.substring(0, 6) + ' ' + telefone.substring(6);
-    }
-    if(telefone.length >= 11) {
-        telefone = telefone.substring(0, 11) + '-' + telefone.substring(11);
-    }
-
-    e.target.value = telefone;
-})
-
-
-
-</script>
-
 @endsection
 
 

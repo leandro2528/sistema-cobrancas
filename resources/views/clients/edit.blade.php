@@ -1,14 +1,18 @@
 @extends('layouts.app')
 
-@section('title', 'Editar Cliente')
+@section('title', ' Editar de Clientes')
 
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-12 py-3 bg-primary">
-            <h2 class="text-center text-white">Editar Cliente</h2>
+        <div class="col-10">
+            <h4>Editar Cliente</h4>
         </div>
-        <div class="col-2"><a class="btn btn-secondary mt-4" href="{{ route('clients-index') }}">Voltar</a></div>
+        <div class="col-2">
+            <a class="btn btn-secondary" href="{{ route('clients-index') }}">Voltar</a>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-12">
             <form action="{{ route('clients-update', $client->id) }}" method="POST">
                 @csrf
@@ -52,4 +56,21 @@
         </div>
     </div>
 </div>
+
+
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

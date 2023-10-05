@@ -19,15 +19,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboards-index');
 
-Route::prefix('/')->group(function() {
-    Route::get('/clients', [ClientController::class, 'index'])->name('clients-index');
+Route::prefix('/clients')->group(function() {
+    Route::get('/', [ClientController::class, 'index'])->name('clients-index');
     Route::get('/cadastro', [ClientController::class, 'create'])->name('clients-create');
     Route::post('/', [ClientController::class, 'store'])->name('clients-store');
-    Route::get('/clients/{id}/edit', [ClientController::class, 'edit'])->name('clients-edit');
+    Route::get('/clients/{id}edit', [ClientController::class, 'edit'])->name('clients-edit');
     Route::put('/clients/{id}/update', [ClientController::class, 'update'])->name('clients-update');
     Route::delete('/clients/{id}/delete', [ClientController::class, 'delete'])->name('clients-delete');
 });
 
 Route::prefix('/cobradores')->group(function() {
     Route::get('/', [CollectorController::class, 'index'])->name('collectors-index');
+    Route::get('/create', [CollectorController::class, 'create'])->name('collectors-create');
+    Route::post('/', [CollectorController::class, 'store'])->name('collectors-store');
 });
