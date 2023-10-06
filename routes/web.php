@@ -41,3 +41,7 @@ Route::prefix('/cobradores')->group(function() {
 Route::prefix('/cobrancas')->group(function() {
     Route::get('/', [ChargeController::class, 'index'])->name('charges-index');
 });
+
+Route::get('/clients/search', [ChargeController::class, 'searchClients'])->name('clients-search');
+
+

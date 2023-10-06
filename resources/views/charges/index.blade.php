@@ -21,7 +21,7 @@
                         <th>Total de Parcelas</th>
                         <th>Total a Pagar</th>
                         <th>Data / Hora</th>
-                        <th>Vencimento</th>
+                      
                     </tr>
                 </thead>
                 <tbody>
@@ -32,9 +32,7 @@
                         <td>{{ $client->dias_pagamento }}</td> 
                         <td>{{ $client->valor_emprestado * 1.2 }},00 R$</td>
                         <td>{{ \Carbon\Carbon::parse($client->created_at)->timezone('America/Sao_Paulo')->format('d/m/Y H:i:s') }}</td>
-                        <td>
-                            <input type="text" class="form-control">
-                        </td>
+                       
                     </tr>
                     @endforeach
                 </tbody>
@@ -43,4 +41,6 @@
         </div>
     </div>
 </div>
+
+
 @endsection

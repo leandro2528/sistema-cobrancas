@@ -28,7 +28,6 @@ class ClientController extends Controller
             'valor_emprestado' => 'required|numeric',
             'dias_pagamento' => 'required|numeric'
         ]);
-
     
         $valor_emprestado = $request->input('valor_emprestado');
         $dias_pagamento = $request->input('dias_pagamento');

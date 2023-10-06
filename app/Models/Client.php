@@ -15,7 +15,7 @@ class Client extends Model
         'idade',
         'cpf',
         'telefone',
-        'valor_empresatado',
+        'valor_emprestado',
         'dias_pagamento',
     ];
 }
