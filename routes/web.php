@@ -32,4 +32,7 @@ Route::prefix('/cobradores')->group(function() {
     Route::get('/', [CollectorController::class, 'index'])->name('collectors-index');
     Route::get('/create', [CollectorController::class, 'create'])->name('collectors-create');
     Route::post('/', [CollectorController::class, 'store'])->name('collectors-store');
+    Route::get('/cobradores/{id}edit', [CollectorController::class, 'edit'])->name('collectors-edit');
+    Route::put('cobradores/{id}/update', [CollectorController::class, 'update'])->name('collectors-update');
+    Route::delete('cobradores/{id}/delete', [ CollectorController::class, 'delete'])->name('collectors-delete');
 });
