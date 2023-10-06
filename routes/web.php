@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CollectorController;
+use App\Http\Controllers\ChargeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,4 +36,8 @@ Route::prefix('/cobradores')->group(function() {
     Route::get('/cobradores/{id}edit', [CollectorController::class, 'edit'])->name('collectors-edit');
     Route::put('cobradores/{id}/update', [CollectorController::class, 'update'])->name('collectors-update');
     Route::delete('cobradores/{id}/delete', [ CollectorController::class, 'delete'])->name('collectors-delete');
+});
+
+Route::prefix('/cobrancas')->group(function() {
+    Route::get('/', [ChargeController::class, 'index'])->name('charges-index');
 });
