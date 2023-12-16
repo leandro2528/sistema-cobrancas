@@ -30,6 +30,26 @@ class ChargeController extends Controller
         return view('charges.index', ['clients' => $clients, 'collectors' => $collectors]);
     }
 
+    public function edit($id) {
+        $client = Client::findOrFail($id);
+
+        return view('charges.edit', ['client'=>$client]);
+    }
+
+    public function update(Request $request, $id) {
+        $clients = Client::findOrFail($id);
+        $clients->update($request->only('nome', 'valor_emprestado','dias_pagamento'
+        ));
+    
+        return redirect()->route('charges-index');
+   }
+   
+    public function delete($id) {
+        $client = Client::findOrFail($id);
+        $client->delete();
+        return redirect()->route('charges-index');
+    }
+
 
 
 }

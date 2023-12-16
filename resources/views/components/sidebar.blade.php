@@ -3,7 +3,9 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <a class="btn btn-secondary btn-sm mb-4" href="{{ url('/') }}">
-                    <div class="sb-sidenav-menu-heading text-white">SGC</div>
+                    <div class="sb-sidenav-menu-heading text-white">
+                        <h2>SGC</h2>
+                    </div>
                 </a>
                         
                 <a class="nav-link" href="{{ route('clients-index') }}">

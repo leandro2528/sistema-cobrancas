@@ -56,6 +56,7 @@ class ClientController extends Controller
     
         return redirect()->route('clients-index');
    }
+   
     public function delete($id) {
         $client = Client::findOrFail($id);
         $client->delete();

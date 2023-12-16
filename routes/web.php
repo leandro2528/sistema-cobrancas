@@ -33,13 +33,15 @@ Route::prefix('/cobradores')->group(function() {
     Route::get('/', [CollectorController::class, 'index'])->name('collectors-index');
     Route::get('/create', [CollectorController::class, 'create'])->name('collectors-create');
     Route::post('/', [CollectorController::class, 'store'])->name('collectors-store');
-    Route::get('/cobradores/{id}edit', [CollectorController::class, 'edit'])->name('collectors-edit');
+    Route::get('/cobradores/{id}/edit', [CollectorController::class, 'edit'])->name('collectors-edit');
     Route::put('cobradores/{id}/update', [CollectorController::class, 'update'])->name('collectors-update');
     Route::delete('cobradores/{id}/delete', [ CollectorController::class, 'delete'])->name('collectors-delete');
 });
 
 Route::prefix('/cobrancas')->group(function() {
     Route::get('/', [ChargeController::class, 'index'])->name('charges-index');
+    Route::get('/charges/{id}edit', [ChargeController::class, 'edit'])->name('charges-edit');
+    Route::put('/charges/{id}/update', [ChargeController::class, 'update'])->name('charges-update');
 });
 
 Route::get('/clients/search', [ChargeController::class, 'searchClients'])->name('clients-search');

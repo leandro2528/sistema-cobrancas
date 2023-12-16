@@ -4,12 +4,31 @@
 
 @section('content')
 
+<style>
+    .bg-lighter-blue {
+    background-color: #538eee; 
+    color: #fff; 
+    }
+    .bg-light-warning {
+    background-color: #f8d64f;
+    color: #000;
+    }
+    .bg-light-success {
+    background-color: #3d9c5b; 
+    color: #000; 
+    }
+    .bg-light-danger {
+    background-color: #db4b4b;
+    color: #000; 
+}
+</style>
+
 
 <div class="container-fluid">
     <h3 class="">Painel Inicial</h3>
     <div class="row">
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-primary text-white mb-4">
+            <div class="card bg-lighter-blue text-white mb-4 shadow">
                 <div class="card-body">Clientes</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('clients-index') }}">
@@ -20,7 +39,7 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-warning text-white mb-4">
+            <div class="card bg-light-warning text-white mb-4 shadow">
                 <div class="card-body">Cobradores</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('collectors-index') }}">
@@ -31,7 +50,7 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-success text-white mb-4">
+            <div class="card bg-light-success text-white mb-4 shadow">
                 <div class="card-body">Cobranças</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <a class="d-flex align-items-center text-white text-decoration-none" href="{{ route('charges-index') }}">
@@ -42,7 +61,7 @@
             </div>
         </div>
         <div class="col-xl-3 col-md-6">
-            <div class="card bg-danger text-white mb-4">
+            <div class="card bg-light-danger text-white mb-4 shadow">
                 <div class="card-body">Relatórios</div>
                 <div class="card-footer d-flex align-items-center justify-content-between">
                     <h6 class="nav-item dropdown">
